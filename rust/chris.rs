@@ -1,0 +1,46 @@
+use std::time::SystemTime;
+
+const RAW_DATA: &str = include_str!("../input.txt");
+const DATA: &[u8] = RAW_DATA.as_bytes();
+
+pub fn find_first_fourteen(input: &[u8]) -> u32 {
+  let mut check: u32 = 0;
+
+  let input_length = input.len() as u32;
+
+  let mut i: u32 = 13;
+  while i < input_length {
+    let end = i - 13;
+
+    let mut w: u32 = i;
+    while w >= end {
+      let marker:u32 = 1 << (input[w as usize] & 31);
+
+      if (check & marker) == 0 {
+        check = check | marker;
+      } else {
+        i = w + 14;
+        check = 0;
+        break;
+      }
+
+      if w == end {
+        return i + 1;
+      }
+
+      w -= 1;
+    }
+  }
+
+  return 0;
+}
+
+fn main() {
+  let before = SystemTime::now();
+  let start = find_first_fourteen(DATA);
+  let after = SystemTime::now();
+
+  let time_taken = after.duration_since(before).unwrap();
+
+  println!("findStart found {} and took {} nanoseconds\n", start, time_taken.as_nanos());
+}

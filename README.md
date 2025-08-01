@@ -18,14 +18,18 @@ Run this on a lambda!
 
 You will need to install these dependencies
 
-    - [https://v8.dev/docs/d8](https://v8.dev/docs/d8)
-        - You will want to grab your beverage of choice, this takes a while!
-        - Hint: The mac profile is `arm64.release`
-        - This is a good guide https://gist.github.com/kevincennis/0cd2138c78a07412ef21
-
-## golang
+    - `cd js`
+    - `node --allow-natives-syntax chris.js`
 
 ## rust
+
+    - `cd rust`
+    - `rustc benny.rs`
+    - `./benny`
+    - `rustc chris.rs`
+    - `./chris`
+    - `rustc david.rs`
+    - `./david`
 
 ## zig
 

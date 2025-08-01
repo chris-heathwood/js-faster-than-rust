@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { performance } = require('perf_hooks');
 
-const input = fs.readFileSync('./input.txt',
+const input = fs.readFileSync('../input.txt',
   { encoding: 'utf8', flag: 'r' });
 
 const alphaLookup = [];
@@ -10,7 +10,7 @@ for (let a = 97; a < (97 + 26); a++) {
   alphaLookup[a] = 1 << (a & 31);
 }
 
-function findStart(findString, window) {
+function findFirstFourteen(findString, window) {
   let check = 0;
   let count = 0;
 
@@ -43,28 +43,30 @@ function findStart(findString, window) {
   return 0;
 }
 
-function callFindStart() {
-  return findStart(input, 14);
+function callFindFirstFourteen() {
+  return findFirstFourteen(input, 14);
 }
 
-%PrepareFunctionForOptimization(callFindStart);
+%PrepareFunctionForOptimization(callFindFirstFourteen);
 
 let start = 0;
 
 // Call function once to fill type information
-start = callFindStart();
+start = callFindFirstFourteen();
 
 // Call function again to go from uninitialized -> pre-monomorphic -> monomorphic
-start = callFindStart();
+start = callFindFirstFourteen();
 
-%OptimizeFunctionOnNextCall(callFindStart);
+%OptimizeFunctionOnNextCall(callFindFirstFourteen);
+
+start = callFindFirstFourteen();
 
 let t = 100;
 const times = [];
 
 while (t >= 0) {
   const before = performance.now();
-  start = callFindStart();
+  start = callFindFirstFourteen();
   const after = performance.now();
 
   times.push((after - before) * 1000000);
@@ -74,4 +76,4 @@ while (t >= 0) {
 
 const average = times.reduce((a, b) => a + b) / times.length;
 
-console.log(`findStart found ${start} and took ${average} nanoseconds`);
+console.log(`findFirstFourteen found ${start} and took ${average} nanoseconds`);
