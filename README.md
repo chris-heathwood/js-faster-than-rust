@@ -9,8 +9,6 @@ We write some optimised code in different languages to see how they compare.
 ```mermaid
 ---
 config:
-    xyChart:
-        showDataLabel: true
     themeVariables:
         xyChart:
             plotColorPalette: "#F0DB4F"
@@ -25,8 +23,6 @@ xychart-beta
 ```mermaid
 ---
 config:
-    xyChart:
-        showDataLabel: true
     themeVariables:
         xyChart:
             plotColorPalette: "#F7A41D,#F0DB4F, #CE422B"
