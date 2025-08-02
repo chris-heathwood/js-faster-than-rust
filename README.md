@@ -32,4 +32,6 @@ You will need to install these dependencies
     - `./david`
 
 ## zig
+    - `cd zig`
+    - ``
 
