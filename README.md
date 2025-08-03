@@ -6,6 +6,53 @@ We take the input (shown in [input.txt](./input.txt)) and find the first 14 uniq
 
 We write some optimised code in different languages to see how they compare.
 
+## Code
+
+### js
+
+    - `cd js`
+    - `node --allow-natives-syntax chris.js`
+    - `node --allow-natives-syntax mike.js`
+
+#### Chris JS
+
+This is an optimised version as per the article, it is surprisingly fast!, see the article for more.
+
+#### Mike JS
+
+This is an example from Mike Bostock, see the article for more.
+
+### rust
+
+    - `cd rust`
+    - `rustc benny.rs`
+    - `./benny`
+    - `rustc chris.rs`
+    - `./chris`
+    - `rustc david.rs`
+    - `./david`
+
+#### Benny RS
+
+This is an example from Benny, see the article for more.
+
+#### Chris RS
+
+This is an optimised version as per the article, see the article for more.
+
+#### Favid RS
+
+This is an example from David, see the article for more.
+
+### zig
+
+    - `cd zig`
+    - `zig run chris.zig`
+
+This is a zig version, it is pretty fast too!
+
+### Results
+
 ```mermaid
 ---
 config:
@@ -36,31 +83,7 @@ xychart-beta
     bar [90000, 55000, 48000, -10000, -10000]
 ```
 
-## js
-
-    - `cd js`
-    - `node --allow-natives-syntax chris.js`
-    - `node --allow-natives-syntax mike.js`
-
-## rust
-
-    - `cd rust`
-    - `rustc benny.rs`
-    - `./benny`
-    - `rustc chris.rs`
-    - `./chris`
-    - `rustc david.rs`
-    - `./david`
-
-## zig
-
-This did need a symlink to work but hopefully should work ok for you.
-
-    - `cd zig`
-    - `zig run chris.zig`
-
-
-# Combinations
+## Combinations
 
 ```sh
 node --max-old-space-size=24576 combinations.js

@@ -4,15 +4,8 @@ const { performance } = require('perf_hooks');
 const input = fs.readFileSync('../input.txt',
   { encoding: 'utf8', flag: 'r' });
 
-const alphaLookup = [];
-
-for (let a = 97; a < (97 + 26); a++) {
-  alphaLookup[a] = 1 << (a & 31);
-}
-
 function findFirstFourteen(findString, window) {
-  let check = 0;
-  let count = 0;
+  let state = 0;
 
   let i = window - 1;
   while (i < findString.length) {
@@ -20,19 +13,17 @@ function findFirstFourteen(findString, window) {
 
     let w = i;
     while (w >= end) {
-      const marker = alphaLookup[findString.charCodeAt(w)];
+      const marker = 1 << (findString.charCodeAt(w) & 31);
 
-      if ((check & marker) === 0) {
-        check = check | marker;
-        count++;
+      if ((state & marker) === 0) {
+        state = state | marker;
       } else {
         i = w + window;
-        check = 0;
-        count = 0;
+        state = 0;
         break;
       }
 
-      if (count === window) {
+      if (w === end) {
         return i + 1;
       }
 

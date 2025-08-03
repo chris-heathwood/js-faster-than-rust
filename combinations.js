@@ -1,5 +1,4 @@
-// From https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/combinations/combineWithRepetitions.js
-// CAH: Refactored to `for of` loops
+// Inspired by https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/combinations/combineWithRepetitions.js
 /**
  * @param {*[]} comboOptions
  * @param {number} comboLength
