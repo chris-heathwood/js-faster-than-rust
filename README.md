@@ -1,6 +1,6 @@
 # js-faster-than-rust
 
-This repo is to support an article on the posidevely website.
+This repo is to support an article on the posidevely.com website.
 
 We take the input (shown in [input.txt](./input.txt)) and find the first 14 unique characters in the string.
 
@@ -85,8 +85,8 @@ xychart-beta
 
 ## Combinations
 
-```sh
-node --max-old-space-size=24576 combinations.js
-```
+Just some code to calculate the number of combinations.
 
-TODO Refactor this to use 32bit number
+```sh
+node combinations.js
+```
