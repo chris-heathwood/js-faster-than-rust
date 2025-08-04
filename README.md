@@ -40,7 +40,7 @@ This is an example from Benny, see the article for more.
 
 This is an optimised version as per the article, see the article for more.
 
-#### Favid RS
+#### David RS
 
 This is an example from David, see the article for more.
 
