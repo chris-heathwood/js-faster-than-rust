@@ -1,0 +1,23 @@
+{
+  "name": "js-faster-than-rust",
+  "version": "1.0.0",
+  "description": "It isn't but it is damn close!",
+  "main": "combinations.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris-heathwood/js-faster-than-rust.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris-heathwood/js-faster-than-rust/issues"
+  },
+  "homepage": "https://github.com/chris-heathwood/js-faster-than-rust#readme",
+  "devDependencies": {
+    "eslint-plugin-extreme-node": "^0.1.0"
+  }
+}

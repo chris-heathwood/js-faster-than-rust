@@ -1,0 +1,31 @@
+function findFirstFourteen(findString, window) {
+  let state = 0;
+
+  let i = window - 1;
+  while (i < findString.length) {
+    const end = (i + 1) - window;
+
+    let w = i;
+    while (w >= end) {
+      const marker = 1 << (findString.charCodeAt(w) & 31);
+
+      if ((state & marker) === 0) {
+        state = state | marker;
+      } else {
+        i = w + window;
+        state = 0;
+        break;
+      }
+
+      if (w === end) {
+        return i + 1;
+      }
+
+      w--;
+    }
+  }
+
+  return 0;
+}
+
+module.exports = { findFirstFourteen };

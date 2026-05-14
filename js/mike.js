@@ -1,17 +1,10 @@
+// @ts-nocheck
 const fs = require('fs');
 const { performance } = require('perf_hooks');
+const { findFirstFourteen } = require('./mike-find-first-fourteen');
 
 const input = fs.readFileSync('../input.txt',
   { encoding: 'utf8', flag: 'r' });
-
-
-function findFirstFourteen(findString, window) {
-  for (let i = window, n = findString.length; i < n; ++i) {
-    if (new Set(findString.slice(i - window, i)).size === window) {
-      return i;
-    }
-  }
-}
 
 function callFindFirstFourteen() {
   return findFirstFourteen(input, 14);

@@ -1,0 +1,3 @@
+{
+  "exclude": ["js/chris.js", "js/mike.js"]
+}

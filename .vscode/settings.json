@@ -1,5 +1,7 @@
 {
   "cSpell.words": [
+    "godbolt",
     "rustc"
-  ]
+  ],
+  "javascript.validate.enable": false
 }
