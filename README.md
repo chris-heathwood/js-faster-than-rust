@@ -1,5 +1,7 @@
 # js-faster-than-rust
 
+It isn't but it is damn close!
+
 This repo is to support an article on the posidevely.com website.
 
 We take the input (shown in [input.txt](./input.txt)) and find the first 14 unique characters in the string.
@@ -24,13 +26,9 @@ This is an example from Mike Bostock, see the article for more.
 
 ### rust
 
-    - `cd rust`
-    - `rustc benny.rs`
-    - `./benny`
-    - `rustc chris.rs`
-    - `./chris`
-    - `rustc david.rs`
-    - `./david`
+    - cd rust && rustc -O benny.rs && ./benny
+    - cd rust && rustc -O chris.rs && ./chris
+    - cd rust && rustc -O david.rs && ./david
 
 #### Benny RS
 
@@ -46,10 +44,13 @@ This is an example from David, see the article for more.
 
 ### zig
 
-    - `cd zig`
-    - `zig run chris.zig`
+    - `cd zig && zig run -O ReleaseFast -lc --sysroot $(xcrun --show-sdk-path) chris.zig`
 
 This is a zig version, it is pretty fast too!
+
+### c
+
+    - `cd c && gcc -O2 chris.c -o chris && ./chris`
 
 ### Results
 
@@ -72,15 +73,16 @@ xychart-beta
 config:
     themeVariables:
         xyChart:
-            plotColorPalette: "#F7A41D,#F0DB4F, #CE422B"
+            plotColorPalette: "#F7A41D, #F0DB4F, #CE422B, #555555"
 ---
 xychart-beta
     title "Code comparison"
-    x-axis [benny-rs, david-rs, chris-rs, chris-zig, chris-js]
+    x-axis [benny-rs, david-rs, chris-zig, chris-js, chris-rs, chris-c]
     y-axis "Time in nanoseconds" 0 --> 100000
-    bar [-10000, -10000, -10000, 18000, -10000]
-    bar [-10000, -10000, -10000, -10000, 2113]
-    bar [90000, 55000, 48000, -10000, -10000]
+    bar [-10000, -10000, 850, -10000, -10000, -10000]
+    bar [-10000, -10000, -10000, 2113, -10000, -10000]
+    bar [2024, 565, -10000, -10000, 879, -10000]
+    bar [-10000, -10000, -10000, -10000, -10000, 770]
 ```
 
 ## Combinations

@@ -37,11 +37,17 @@ fn findFirstFourteen(findString: *const [4095:0]u8, window: u8) u64 {
 }
 
 pub fn main() !void {
+    var result: u64 = 0;
+    const sink: *volatile u64 = &result;
+
     const before = std.time.nanoTimestamp();
-    const start = findFirstFourteen(data, 14);
+    var t: u32 = 0;
+    while (t < 100) : (t += 1) {
+        sink.* = findFirstFourteen(data, 14);
+    }
     const after = std.time.nanoTimestamp();
 
-    const timeTaken = after - before;
+    const average = @as(f64, @floatFromInt(after - before)) / 100.0;
 
-    std.debug.print("findStart found {d} and took {d} nanoseconds\n", .{ start, timeTaken });
+    std.debug.print("findStart found {d} and took {d:.2} nanoseconds\n", .{ result, average });
 }
