@@ -11,10 +11,8 @@ We write some optimised code in different languages to see how they compare.
 ## Code
 
 ### js
-
-    - `cd js`
-    - `node --allow-natives-syntax chris.js`
-    - `node --allow-natives-syntax mike.js`
+    - `cd js && node --allow-natives-syntax chris.js && cd -`
+    - `cd js && node --allow-natives-syntax mike.js && cd -`
 
 #### Chris JS
 
@@ -77,10 +75,10 @@ config:
 ---
 xychart-beta
     title "Code comparison"
-    x-axis [benny-rs, david-rs, chris-zig, chris-js, chris-rs, chris-c]
-    y-axis "Time in nanoseconds" 0 --> 100000
-    bar [-10000, -10000, 850, -10000, -10000, -10000]
-    bar [-10000, -10000, -10000, 2113, -10000, -10000]
+    x-axis [benny-rs, david-rs, chris-js, chris-zig, chris-rs, chris-c]
+    y-axis "Time in nanoseconds" 0 --> 5000
+    bar [-10000, -10000, -10000, 850, -10000, -10000]
+    bar [-10000, -10000, 1449, -10000, -10000, -10000]
     bar [2024, 565, -10000, -10000, 879, -10000]
     bar [-10000, -10000, -10000, -10000, -10000, 770]
 ```
